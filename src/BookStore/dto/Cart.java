@@ -19,16 +19,20 @@ public class Cart {
     }
 
     public boolean addItemToCart(Book book, int quantity) {
-        if(this.books.containsKey(book)) {
-            int quant = books.get(book);
-            quant += quantity;
-            this.total = this.total.add(book.getPrice().multiply(new BigDecimal(quant)));
-            this.books.put(book, quant);
+        if(quantity > 0) {
+            if (this.books.containsKey(book)) {
+                int quant = books.get(book);
+                quant += quantity;
+                this.total = this.total.add(book.getPrice().multiply(new BigDecimal(quant)));
+                this.books.put(book, quant);
+            } else {
+                this.books.put(book, quantity);
+                this.total = this.total.add(book.getPrice().multiply(new BigDecimal(quantity)));
+            }
+            return true;
         } else {
-            this.books.put(book, quantity);
-            this.total = this.total.add(book.getPrice().multiply(new BigDecimal(quantity)));
+            return false;
         }
-        return true;
     }
 
     public HashMap<Book, Integer> getBooks() {
@@ -73,11 +77,15 @@ public class Cart {
     }
 
     public boolean updateItem(Book book, int newQuantity) {
-        if(this.books.containsKey(book)) {
-            this.total = this.total.subtract(book.getPrice().multiply(new BigDecimal(this.books.get(book))));
-            this.total = this.total.add(book.getPrice().multiply(new BigDecimal(newQuantity)));
-            this.books.put(book, newQuantity);
-            return true;
+        if(newQuantity >= 0) {
+            if (this.books.containsKey(book)) {
+                this.total = this.total.subtract(book.getPrice().multiply(new BigDecimal(this.books.get(book))));
+                this.total = this.total.add(book.getPrice().multiply(new BigDecimal(newQuantity)));
+                this.books.put(book, newQuantity);
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

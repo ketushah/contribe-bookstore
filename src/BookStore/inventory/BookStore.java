@@ -53,18 +53,22 @@ public class BookStore implements BookList {
 
     @Override
     public boolean add(Book book, int quantity) {
-        try {
-            if (BookStore.bookStore.containsKey(book)) {
-                int qnt = BookStore.bookStore.get(book);
-                qnt += quantity;
-                BookStore.bookStore.put(book, qnt);
-            } else {
-                BookStore.bookStore.put(book, quantity);
+        if(quantity >= 0) {
+            try {
+                if (BookStore.bookStore.containsKey(book)) {
+                    int qnt = BookStore.bookStore.get(book);
+                    qnt += quantity;
+                    BookStore.bookStore.put(book, qnt);
+                } else {
+                    BookStore.bookStore.put(book, quantity);
+                }
+                return true;
+            } catch (Exception e) {
+                System.out.println("Error while updating inventory.");
+                e.printStackTrace();
+                return false;
             }
-            return true;
-        } catch (Exception e) {
-            System.out.println("Error while updating inventory.");
-            e.printStackTrace();
+        } else {
             return false;
         }
     }

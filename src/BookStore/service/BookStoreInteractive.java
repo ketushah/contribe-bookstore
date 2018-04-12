@@ -33,7 +33,7 @@ public class BookStoreInteractive {
         requestOptions.append("4 - Checkout \n");
         requestOptions.append("5 - Add Book to Inventory(Requires Admin Access) \n");
         requestOptions.append("6 - Exit");
-        this.inventory = new BookStore();
+        inventory = new BookStore();
         loadData();
     }
 
@@ -46,7 +46,7 @@ public class BookStoreInteractive {
         requestOptions.append("4 - Checkout \n");
         requestOptions.append("5 - Add Book to Inventory(Requires Admin Access) \n");
         requestOptions.append("6 - Exit");
-        this.inventory = new BookStore();
+        inventory = new BookStore();
         loadData();
     }
 
@@ -79,7 +79,12 @@ public class BookStoreInteractive {
 
     private void loadData() {
         BookStoreDao dao =new BookStoreDao();
-        this.inventory = new BookStore(dao.loadData());
+        inventory = new BookStore(dao.loadData());
+        if(inventory.getBookStore() == null || inventory.getBookStore().size() == 0) {
+            System.out.println("Sorry, we do not have inventory ready. We aplogize for inconvenience. Please visit again later!");
+            System.out.println("System Exiting...");
+            System.exit(0);
+        }
     }
 
     private void updateData() {
@@ -565,14 +570,14 @@ public class BookStoreInteractive {
         this.user.setItems(this.user.getItems());
     }
 
-    private boolean checkQuantityInputValidity(int userInput) {
+    public boolean checkQuantityInputValidity(int userInput) {
         if (userInput <= 0)
             return false;
         else
             return true;
     }
 
-    private boolean checkPriceInput(BigDecimal userInput) {
+    public boolean checkPriceInput(BigDecimal userInput) {
         if (userInput.compareTo(new BigDecimal(0)) <= 0)
             return false;
         else

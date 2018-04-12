@@ -1,8 +1,10 @@
-# contribe-bookstore
+# Contribe Book Store
 IDE Used for Development: IntelliJ Idea
+
 Java Version: 1.8.0_131
 
 Application Run Instruction:
+
 Main Class: App.java
 
 Once cloning the repo into the IDE, set the run configuration to select App.java as main class.
