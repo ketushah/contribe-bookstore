@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import BookStore.dto.Book;
-import BookStore.dto.Cart;
+import BookStore.model.Book;
+import BookStore.model.Cart;
 
 /**
  * Created by ketu.shah on 4/12/2018.

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import BookStore.dao.BookStoreDao;
-import BookStore.dto.Book;
-import BookStore.dto.Status;
+import BookStore.model.Book;
+import BookStore.model.Status;
 
 /**
  * Created by ketu.shah on 4/3/2018.

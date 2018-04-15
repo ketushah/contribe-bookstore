@@ -1,6 +1,6 @@
 package BookStore.inventory;
 
-import BookStore.dto.Book;
+import BookStore.model.Book;
 
 /**
  * Created by ketu.shah on 4/3/2018.

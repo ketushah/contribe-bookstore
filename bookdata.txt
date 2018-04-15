@@ -1,8 +1,7 @@
-Random Sales;Cunning Bastard;499.50;2
+Random Sales;Cunning Bastard;499.50;3
 Desired;Rich Bloke;564.50;0
 How To Spend Money;Rich Bloke;1000000.00;1
-dfgsdg;dsghsdh;50;10
 Generic Title;First Author;185.50;5
-Mastering åäö;Average Swede;762.00;13
+Mastering åäö;Average Swede;762.00;15
 Random Sales;Cunning Bastard;999.00;20
-Generic Title;Second Author;1748.00;2
+Generic Title;Second Author;1748.00;3

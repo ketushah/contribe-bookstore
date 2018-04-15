@@ -1,4 +1,4 @@
-package BookStore.dto;
+package BookStore.model;
 
 /**
  * Created by ketu.shah on 4/7/2018.

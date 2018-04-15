@@ -10,10 +10,10 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 import BookStore.dao.BookStoreDao;
-import BookStore.dto.Book;
-import BookStore.dto.Cart;
-import BookStore.dto.Status;
-import BookStore.dto.User;
+import BookStore.model.Book;
+import BookStore.model.Cart;
+import BookStore.model.Status;
+import BookStore.model.User;
 import BookStore.inventory.BookStore;
 
 /**
@@ -58,6 +58,7 @@ public class BookStoreInteractive {
         this.user.setName(userName);
     }
 
+    //Initial User Interaction Function
     public BookStoreInteractive init(BookStoreInteractive interactive) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -77,6 +78,7 @@ public class BookStoreInteractive {
         return interactive;
     }
 
+    //Populating Inventory for Current Session
     private void loadData() {
         BookStoreDao dao =new BookStoreDao();
         inventory = new BookStore(dao.loadData());
@@ -92,6 +94,7 @@ public class BookStoreInteractive {
         this.inventory = new BookStore(dao.getLatestData());
     }
 
+    //Function calls for selection made by User
     public void serviceUserRequests() {
 
         Scanner inputReader = new Scanner(new InputStreamReader(System.in));
@@ -102,21 +105,27 @@ public class BookStoreInteractive {
             userInput = inputReader.next();
             switch (userInput) {
                 case "1":
+                    //Display All Items
                     processBookListing();
                     break;
                 case "2":
+                    //Search for Book by Name/ Author
                     processSearch();
                     break;
                 case "3":
+                    //Display Cart
                     processCartListing();
                     break;
                 case "4":
+                    //Checkout
                     processOrder();
                     break;
                 case "5":
+                    //Add Item
                     addInventoryItem(3);
                     break;
                 case "6":
+                    //Exit
                     System.out.println("We appreciate your business! See you soon, "+user.getName());
                     System.exit(0);
                     break;
@@ -129,6 +138,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Display Cart Function
     private void processCartListing() {
         if(this.user.getItems() == null || this.user.getItems().getBooks() == null || this.user.getItems().getBooks().isEmpty() || this.user.getItems().getBooks().size() == 0) {
             System.out.println("Hello, "+user.getName());
@@ -141,6 +151,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Checkout Process
     private void processOrder() {
         if(this.user.getItems() == null || this.user.getItems().getBooks() == null || this.user.getItems().getBooks().isEmpty() || this.user.getItems().getBooks().size() == 0) {
             processCartListing();
@@ -151,6 +162,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Displaying Books
     private void processBookListing() {
         TreeMap<Integer, Book> resultElements = new TreeMap<>();
         int index = 1;
@@ -162,6 +174,7 @@ public class BookStoreInteractive {
         processSearchResults(resultElements);
     }
 
+    //Process to add the book to Cart after selecting Index of Book from Search Result
     private int processSelection(Book book) {
         System.out.println("You have selected following book:");
         System.out.println(book.display());
@@ -184,6 +197,7 @@ public class BookStoreInteractive {
         return 0;
     }
 
+    //Editing Cart Item Options
     private void processCartUpdate(Book book) {
         int reuqestedQuantity = 0;
         System.out.println("Please Enter Quantity for the Book: ");
@@ -209,6 +223,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Display Cart Update Options
     private void processCartUpdate() {
         System.out.println(this.user.getItems().displayCart());
         System.out.println("Please Select One of the following options:");
@@ -236,6 +251,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Processing Cart Items for purchase
     private void processPurchase(Cart cart) {
         ArrayList<Book> books = new ArrayList<>();
         //int cartSize = 0;
@@ -259,6 +275,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Validating and displaying status of cart item after initiating transaction
     private void displayPurchaseStatus(ArrayList<Book> books, int[] status) {
         StringBuffer displayData = new StringBuffer();
         displayData.append("Thank You for your business with Contribe Book Store, "+user.getName());
@@ -277,6 +294,7 @@ public class BookStoreInteractive {
         System.out.println(displayData);
     }
 
+    //Creating Result Set with Index
     private void processSearchResults(TreeMap<Integer, Book> resultSet) {
         displaySearchResult(resultSet);
         System.out.println("To Select One of the Result, Enter Index Number of the Book. To go back, press 0");
@@ -293,11 +311,12 @@ public class BookStoreInteractive {
             }
         } catch (Exception e) {
             System.out.println("Invalid Entry! Please Try Again...");
-            e.printStackTrace();
+            //e.printStackTrace();
             processSearchResults(resultSet);
         }
     }
 
+    //Get Search String from User
     private void processSearch() {
         System.out.print("Please Enter Search String: ");
         Scanner inputReader = new Scanner(new InputStreamReader(System.in));
@@ -321,6 +340,7 @@ public class BookStoreInteractive {
         processSearchResults(resultElements);
     }
 
+    //Display Search Results
     private void displaySearchResult(TreeMap<Integer, Book> resultElements) {
         for(Map.Entry<Integer, Book> result : new ArrayList<>(resultElements.entrySet())) {
             System.out.println("Index : "+result.getKey());
@@ -328,6 +348,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Process Transaction when Cart is Empty
     private void emptyCartCheckoutHandler() {
         System.out.println("Select one of the following options:");
         System.out.println("1 - Go Back");
@@ -347,6 +368,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Confirmation before purchase
     private void processPrePurchaseInteraction() {
         System.out.println("Please select one of the following options:");
         System.out.println("1 - Checkout");
@@ -377,6 +399,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Updating inventory
     private void addInventoryItem(int tryLeft) {
         if(tryLeft == 0) {
             System.out.println("You have exhausted your chances. The Application will terminate now for security reasons.");
@@ -394,6 +417,7 @@ public class BookStoreInteractive {
         }
     }
 
+    //Process New Book Information
     private void insertNewItemDetails() {
         BookStore.displayInventory();
         Scanner inputReader = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -424,7 +448,7 @@ public class BookStoreInteractive {
                 }
             } catch (Exception e) {
                 System.out.println("Invalid Input! Try Again...");
-                e.printStackTrace();
+                //e.printStackTrace();
                 insertNewItemDetails();
             }
         }
@@ -432,6 +456,7 @@ public class BookStoreInteractive {
         dao.updateLocalFileData(inventory.getBookStore());
     }
 
+    //Process Book Input
     private Book processManualItemEntry() {
         Book book = null;
         try {
@@ -450,12 +475,13 @@ public class BookStoreInteractive {
             book = new Book(name, author, price);
         } catch (Exception e) {
             System.out.println("Enter Valid Input! Try Again.");
-            e.printStackTrace();
+            //e.printStackTrace();
             processManualItemEntry();
         }
         return book;
     }
 
+    //Option for Cart Update
     private void processEditCart() {
 
         System.out.println("Select one of the following options:");
@@ -501,6 +527,7 @@ public class BookStoreInteractive {
         return cartMap;
     }
 
+    //Remove item from Cart
     private void processItemRemoval() {
         TreeMap<Integer, Book> cartItems = getCartMap(this.user.getItems());
         if(cartItems == null || cartItems.size() == 0) {
@@ -526,7 +553,7 @@ public class BookStoreInteractive {
                 }
             } catch (Exception e) {
                 System.out.println("Only Whole Numbers Allowed. Enter Valid Input!");
-                e.printStackTrace();
+                //e.printStackTrace();
                 processItemRemoval();
             }
         }
@@ -543,7 +570,7 @@ public class BookStoreInteractive {
             Scanner inputReader = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
             try {
                 int indexInput = inputReader.nextInt();
-                if (indexInput > cartItems.size()) {
+                if (indexInput != 0 && indexInput > cartItems.size()) {
                     System.out.println("Index Does not Exist. Try Again.");
                     processEditQuantity();
                 }
@@ -558,18 +585,20 @@ public class BookStoreInteractive {
                 this.user.setItems(this.user.getItems());
             } catch (Exception e) {
                 System.out.println("Only Whole Positive Numbers Allowed. Enter Valid Input!");
-                e.printStackTrace();
+                //e.printStackTrace();
                 processEditQuantity();
             }
         }
     }
 
+    //Handle Manual Book Entry into Cart
     private void processManualCartItemEntry() {
         Book book = processManualItemEntry();
         processCartUpdate(book);
         this.user.setItems(this.user.getItems());
     }
 
+    //Check Validity of Quantity Input by User
     public boolean checkQuantityInputValidity(int userInput) {
         if (userInput <= 0)
             return false;
@@ -577,6 +606,7 @@ public class BookStoreInteractive {
             return true;
     }
 
+    //Check validity of price input by User
     public boolean checkPriceInput(BigDecimal userInput) {
         if (userInput.compareTo(new BigDecimal(0)) <= 0)
             return false;

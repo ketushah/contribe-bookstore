@@ -1,4 +1,4 @@
-package BookStore.dto;
+package BookStore.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ public class Cart {
         this.total = new BigDecimal(0);
     }
 
+    //Adding Book to cart
     public boolean addItemToCart(Book book, int quantity) {
         if(quantity > 0) {
             if (this.books.containsKey(book)) {
@@ -51,6 +52,7 @@ public class Cart {
         this.total = total;
     }
 
+    //Cart Display Logic
     public String displayCart() {
         StringBuffer display =new StringBuffer();
         display.append("You have following Items in your cart:\n");
@@ -60,12 +62,13 @@ public class Cart {
         for(Map.Entry<Book, Integer> book : new ArrayList<>(this.books.entrySet())) {
             display.append(book.getKey().display());
             display.append("Quantity: "+book.getValue()+"\n");
-            display.append("\n \n");
+            display.append("\n");
         }
-        display.append("Your Total is: "+this.total.toString()+"\n");
+        display.append("\nYour Total is: "+this.total.toString()+"\n");
         return new String(display);
     }
 
+    //Remove an Item from Cart
     public boolean removeItem(Book book) {
         if(this.books.containsKey(book)) {
             this.total = this.total.subtract(book.getPrice().multiply(new BigDecimal(this.books.get(book))));
@@ -76,6 +79,7 @@ public class Cart {
         }
     }
 
+    //Update Quantity of an Item in the cart
     public boolean updateItem(Book book, int newQuantity) {
         if(newQuantity >= 0) {
             if (this.books.containsKey(book)) {
@@ -91,6 +95,7 @@ public class Cart {
         }
     }
 
+    //Return Cart Items with Index
     public String displayCart(TreeMap<Integer, Book> cartMap) {
         StringBuffer display =new StringBuffer();
         //display.append("You have following Items in your cart:\n");

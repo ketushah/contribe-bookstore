@@ -3,7 +3,7 @@ package Java;
 import org.junit.Assert;
 import org.junit.Test;
 
-import BookStore.dto.User;
+import BookStore.model.User;
 
 /**
  * Created by ketu.shah on 4/12/2018.

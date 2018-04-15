@@ -13,7 +13,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import BookStore.dto.Book;
+import BookStore.model.Book;
 
 /**
  * Created by ketu.shah on 4/4/2018.
@@ -21,6 +21,7 @@ import BookStore.dto.Book;
 public class BookStoreDao {
     private final static String DELIMETER = ";";
 
+    //Loading Data initially at the start of the application from URL.
     public HashMap<Book, Integer> loadData() {
         HashMap<Book, Integer> bookStoreInvenotry = new HashMap<>();
         try {
@@ -48,6 +49,7 @@ public class BookStoreDao {
         return bookStoreInvenotry;
     }
 
+    //Processes the input of each line of file
     private Object[] processFileInput(String fileData) {
         String[] tokens = fileData.split(DELIMETER);
         Object[] returnData = new Object[2];
@@ -57,6 +59,7 @@ public class BookStoreDao {
         return returnData;
     }
 
+    //Updating local file data after each transaction by user/ inventory update by Admin
     public boolean updateLocalFileData(HashMap<Book, Integer> bookInventory) {
         BufferedWriter bufferedWriter = null;
         try {
@@ -92,6 +95,7 @@ public class BookStoreDao {
         return true;
     }
 
+    //Getting latest data from Local File after each update on Local
     public HashMap<Book, Integer> getLatestData() {
         BufferedReader dataReader = null;
         HashMap<Book, Integer> bookStoreInvenotry = new HashMap<>();

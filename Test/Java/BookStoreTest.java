@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
-import BookStore.dto.Book;
+import BookStore.model.Book;
 import BookStore.inventory.BookStore;
 
 /**
