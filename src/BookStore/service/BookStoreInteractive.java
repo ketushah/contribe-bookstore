@@ -460,10 +460,6 @@ public class BookStoreInteractive {
         dao.updateLocalFileData(inventory.getBookStore());
     }
 
-    private int processManualQuantityEntry() {
-        return 0;
-    }
-
     //Process Book Input
     private Book processManualItemEntry() {
         Book book;
