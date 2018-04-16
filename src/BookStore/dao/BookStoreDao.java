@@ -21,7 +21,8 @@ import BookStore.model.Book;
 public class BookStoreDao {
     private final static String DELIMETER = ";";
 
-    //Loading Data initially at the start of the application from URL.
+    //I would use relational DBMS to hold data locally for better performance. But since we need to minimally use third party tool, I am implementing this with local file.
+    // Loading Data initially at the start of the application from URL.
     public HashMap<Book, Integer> loadData() {
         HashMap<Book, Integer> bookStoreInvenotry = new HashMap<>();
         try {
