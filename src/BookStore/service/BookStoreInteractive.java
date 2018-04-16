@@ -593,9 +593,14 @@ public class BookStoreInteractive {
 
     //Handle Manual Book Entry into Cart
     private void processManualCartItemEntry() {
-        Book book = processManualItemEntry();
-        processCartUpdate(book);
-        this.user.setItems(this.user.getItems());
+        try {
+            Book book = processManualItemEntry();
+            processCartUpdate(book);
+            this.user.setItems(this.user.getItems());
+        } catch (Exception e) {
+            System.out.println("Invalid Book Entry Made. Try Again...");
+            processManualCartItemEntry();
+        }
     }
 
     //Check Validity of Quantity Input by User

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee31f21-7d7a-406e-aeba-27f389d67851" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bookdata.txt" afterPath="$PROJECT_DIR$/bookdata.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java" afterPath="$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookStoreInteractive.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BookStoreInteractive.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="459" column="58" lean-forward="true" selection-start-line="459" selection-start-column="58" selection-end-line="459" selection-end-column="58" />
+            <state relative-caret-position="416">
+              <caret line="601" column="41" lean-forward="false" selection-start-line="601" selection-start-column="41" selection-end-line="601" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -90,8 +91,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+            <state relative-caret-position="204">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -107,7 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -123,8 +124,8 @@
       <file leaf-file-name="bookdata.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bookdata.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -165,6 +166,8 @@
       <find>printstac</find>
       <find>inventory.add</find>
       <find>processManualItemEntry</find>
+      <find>emptyCartCheckoutHandler</find>
+      <find>processpurchase</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,10 +207,10 @@
         <option value="$PROJECT_DIR$/Test/Java/UserTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/BookStore/model/Cart.java" />
-        <option value="$PROJECT_DIR$/bookdata.txt" />
-        <option value="$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java" />
         <option value="$PROJECT_DIR$/src/BookStore/dao/BookStoreDao.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java" />
+        <option value="$PROJECT_DIR$/bookdata.txt" />
       </list>
     </option>
   </component>
@@ -1047,7 +1050,7 @@
       <workItem from="1523554989605" duration="254000" />
       <workItem from="1523827142579" duration="3539000" />
       <workItem from="1523841869308" duration="2332000" />
-      <workItem from="1523881546869" duration="7741000" />
+      <workItem from="1523881546869" duration="9945000" />
     </task>
     <task id="LOCAL-00001" summary="Git Ignore file added. Created by IDE">
       <created>1523464648073</created>
@@ -1060,12 +1063,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_contribe-bookstore - 2018.04.12 at 11h 26m 40s.xml">
-      <configuration name="All in contribe-bookstore" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_contribe-bookstore - 2018.04.12 at 11h 28m 08s.xml">
-      <configuration name="All in contribe-bookstore" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_contribe-bookstore - 2018.04.12 at 11h 30m 29s.xml">
       <configuration name="All in contribe-bookstore" configurationId="JUnit" />
     </history-entry>
@@ -1090,9 +1087,15 @@
     <history-entry file="All_in_contribe-bookstore - 2018.04.12 at 12h 00m 02s.xml">
       <configuration name="All in contribe-bookstore" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_contribe-bookstore - 2018.04.16 at 10h 55m 46s.xml">
+      <configuration name="All in contribe-bookstore" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_contribe-bookstore - 2018.04.16 at 11h 00m 49s.xml">
+      <configuration name="All in contribe-bookstore" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123999000" />
+    <option name="totallyTimeSpent" value="126203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -1105,7 +1108,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48897412" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48897412" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14605543" sideWeight="0.49561954" order="0" side_tool="false" content_ui="combo" />
@@ -1114,7 +1117,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1444563" sideWeight="0.50438046" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3489933" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3489933" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1547,14 +1550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bookdata.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -1625,26 +1620,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BookStore/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="459" column="58" lean-forward="true" selection-start-line="459" selection-start-column="58" selection-end-line="459" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1665,6 +1644,30 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bookdata.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BookStore/service/BookStoreInteractive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="601" column="41" lean-forward="false" selection-start-line="601" selection-start-column="41" selection-end-line="601" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
