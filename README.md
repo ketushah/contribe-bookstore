@@ -1,4 +1,6 @@
-# Contribe Book Store
+# Contribe Book Store (CMD Version)
+Note: To enable the project to accept GET/POST request, I would make this a SpringBoot Project and have proper methods accept requests with parameter and provide related response.
+
 IDE Used for Development: IntelliJ Idea
 
 Java Version: 1.8.0_131
@@ -14,8 +16,8 @@ The interaction with Application can be done by command prompt. The front-end ca
 
 The Application loads data at the start of the Application from the Remote URL provided in the requirement. After initializing local file from the remote file, we will only work and maintain local file. We can and we should update the changes to remote as well but for now, since it is not required, I have not implemented it.
 
-DTO contains the containers for holding data.
+Model contains the containers for holding and processing data.
 Service package holds the class which deals with the user interaction.
 DAO contains class that will handle transaction with the Storage (File on Local Storage for this project). 
 
-For the sake of simplicity and time constraint, I have kept it a really simple Application. 
+For the sake of simplicity and due to time constraint, I have kept it a really simple CMD application. 
