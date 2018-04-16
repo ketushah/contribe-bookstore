@@ -72,6 +72,7 @@ public class BookStoreDao {
             bufferedWriter = new BufferedWriter(fileWriter);
 
             for(Map.Entry<Book, Integer> book : bookInventory.entrySet()) {
+                //System.out.println(book.getKey() + " " + book.getValue());
                 bufferedWriter.write(book.getKey().toString()+";"+book.getValue());
                 bufferedWriter.newLine();
             }

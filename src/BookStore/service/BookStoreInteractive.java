@@ -420,13 +420,16 @@ public class BookStoreInteractive {
     //Process New Book Information
     private void insertNewItemDetails() {
         BookStore.displayInventory();
-        Scanner inputReader = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
         String continueFlag;
         int quantity;
         boolean more = true;
         while(more) {
-            Book book = processManualItemEntry();
+            Scanner inputReader = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
             try {
+                Book book = processManualItemEntry();
+                if (book == null ) {
+                    throw new Exception("Invalid Book Data Entered.");
+                }
                 System.out.print("Please Enter Book Quantity(Only WHOLE POSITIVE numbers allowed): ");
                 quantity = inputReader.nextInt();
                 if (!checkQuantityInputValidity(quantity)) {
@@ -449,34 +452,35 @@ public class BookStoreInteractive {
             } catch (Exception e) {
                 System.out.println("Invalid Input! Try Again...");
                 //e.printStackTrace();
-                insertNewItemDetails();
+                //insertNewItemDetails();
+                continue;
             }
         }
         BookStoreDao dao = new BookStoreDao();
         dao.updateLocalFileData(inventory.getBookStore());
     }
 
+    private int processManualQuantityEntry() {
+        return 0;
+    }
+
     //Process Book Input
     private Book processManualItemEntry() {
-        Book book = null;
-        try {
-            Scanner inputReader = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-            String name, author;
-            BigDecimal price;
-            System.out.print("Please Enter Book Name: ");
-            name = inputReader.nextLine();
-            System.out.print("Please Enter Book Author Name: ");
-            author = inputReader.nextLine();
-            System.out.print("Please Enter Book Price(Only Numbers Allowed): ");
-            price = inputReader.nextBigDecimal();
-            if(!checkPriceInput(price)) {
-                throw new Exception("Invalid Price Entered...");
-            }
+        Book book;
+
+        Scanner inputReader = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+        String name, author;
+        BigDecimal price;
+        System.out.print("Please Enter Book Name: ");
+        name = inputReader.nextLine();
+        System.out.print("Please Enter Book Author Name: ");
+        author = inputReader.nextLine();
+        System.out.print("Please Enter Book Price(Only Numbers Allowed): ");
+        price = inputReader.nextBigDecimal();
+        if(!checkPriceInput(price)) {
+            book = processManualItemEntry();
+        } else {
             book = new Book(name, author, price);
-        } catch (Exception e) {
-            System.out.println("Enter Valid Input! Try Again.");
-            //e.printStackTrace();
-            processManualItemEntry();
         }
         return book;
     }
